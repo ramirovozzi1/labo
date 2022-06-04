@@ -130,7 +130,7 @@ EstimarGanancia_ranger  <- function( x )
 #Aqui comienza el programa
 
 #Aqui se debe poner la carpeta de la computadora local
-setwd("D:\\gdrive\\ITBA2022A\\")   #Establezco el Working Directory
+setwd("C:/Users/rvozzi/OneDrive - genommalabinternacional/Documentos/ECD/DataMining")   #Establezco el Working Directory
 
 #cargo el dataset donde voy a entrenar el modelo
 dataset  <- fread("./datasets/paquete_premium_202011.csv", stringsAsFactors= TRUE)   #donde entreno
@@ -140,7 +140,7 @@ dataset  <- fread("./datasets/paquete_premium_202011.csv", stringsAsFactors= TRU
 # HT  representa  Hiperparameter Tuning
 dir.create( "./labo/exp/",  showWarnings = FALSE ) 
 dir.create( "./labo/exp/HT4310/", showWarnings = FALSE )
-setwd("D:\\gdrive\\ITBA2022A\\labo\\exp\\HT4310\\")   #Establezco el Working Directory DEL EXPERIMENTO
+setwd("C:/Users/rvozzi/OneDrive - genommalabinternacional/Documentos/ECD/DataMining/labo/exp/HT4310/")   #Establezco el Working Directory DEL EXPERIMENTO
 
 #en este archivo quedan el resultados
 klog        <- "HT431.txt"
@@ -168,10 +168,10 @@ dataset  <- na.roughfix( dataset )
 
 
 #llamo con los valores default
-x  <- list( "num.trees" = 500,
-            "max.depth" = NULL,
-            "min.node_size" = NULL,
-            "mtry"= NULL )
+x  <- list( "num.trees"=       360,  #cantidad de arboles
+            "mtry"=             34,  #cantidad de variables que evalua para hacer un split  sqrt(ncol(dtrain))
+            "min.node.size"=  1600,  #tamaño minimo de las hojas
+            "max.depth"=        15  )
 
 EstimarGanancia_ranger( x )
 

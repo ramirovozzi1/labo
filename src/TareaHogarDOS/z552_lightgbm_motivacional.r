@@ -21,7 +21,7 @@ require("lightgbm")
 ksemilla  <- 102191  #poner aqui la PRIMERA de sus cinco semillas
 
 #Aqui se debe poner la carpeta de la computadora local
-setwd("D:\\gdrive\\ITBA2022A\\")   #Establezco el Working Directory
+setwd("C:/Users/rvozzi/OneDrive - genommalabinternacional/Documentos/ECD/DataMining")   #Establezco el Working Directory
 
 #cargo el dataset donde voy a entrenar
 dataset  <- fread("./datasets/paquete_premium_202011.csv", stringsAsFactors= TRUE)

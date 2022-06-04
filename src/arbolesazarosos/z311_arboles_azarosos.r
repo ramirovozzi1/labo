@@ -9,7 +9,7 @@ require("rpart")
 require("rpart.plot")
 
 #Aqui se debe poner la carpeta de la computadora local
-setwd("D:\\gdrive\\ITBA2022A\\")  #Establezco el Working Directory
+setwd("C:/Users/rvozzi/OneDrive - genommalabinternacional/Documentos/ECD/DataMining")  #Establezco el Working Directory
 
 #cargo los datos donde entreno
 dtrain  <- fread("./datasets/paquete_premium_202011.csv")
@@ -26,10 +26,10 @@ param_buenos  <- list( "cp"=         -1,
                        "minbucket"= 150,
                        "maxdepth"=    6 )
 
-num_trees         <-  20    #voy a generar 20 arboles, a mas arboles mas tiempo de proceso y MEJOR MODELO
+num_trees         <-  100    #voy a generar 20 arboles, a mas arboles mas tiempo de proceso y MEJOR MODELO
 feature_fraction  <-   0.5  #entreno cada arbol con solo 50% de las variables variables
 
-set.seed(102191) #Establezco la semilla aleatoria, cambiar por SU primer semilla
+set.seed(128339) #Establezco la semilla aleatoria, cambiar por SU primer semilla
 
 #inicializo en CERO el vector de las probabilidades en dapply
 #Aqui es donde voy acumulando, sumando, las probabilidades

@@ -26,7 +26,7 @@ hs  <- makeParamSet(
           makeIntegerParam("maxdepth" , lower=  3L  , upper=   20L),
           forbidden = quote( minbucket > 0.5*minsplit ) )             # minbuket NO PUEDE ser mayor que la mitad de minsplit
 
-ksemilla_azar  <- 102191   #cambiar por la primer semilla
+ksemilla_azar  <- 128339  #cambiar por la primer semilla
 
 #------------------------------------------------------------------------------
 #graba a un archivo los componentes de lista
@@ -140,7 +140,7 @@ EstimarGanancia  <- function( x )
 #------------------------------------------------------------------------------
 #Aqui empieza el programa
 
-setwd( "D:\\gdrive\\ITBA2022A\\" )
+setwd( "C:/Users/rvozzi/OneDrive - genommalabinternacional/Documentos/ECD/DataMining" )
 
 #cargo el dataset
 dataset  <- fread("./datasets/paquete_premium_202011.csv")   #donde entreno
@@ -150,7 +150,7 @@ dataset  <- fread("./datasets/paquete_premium_202011.csv")   #donde entreno
 # HT  representa  Hiperparameter Tuning
 dir.create( "./labo/exp/",  showWarnings = FALSE ) 
 dir.create( "./labo/exp/HT3210/", showWarnings = FALSE )
-setwd("D:\\gdrive\\ITBA2022A\\labo\\exp\\HT3210\\")   #Establezco el Working Directory DEL EXPERIMENTO
+setwd("C:/Users/rvozzi/OneDrive - genommalabinternacional/Documentos/ECD/DataMining/labo/exp/HT3210/")   #Establezco el Working Directory DEL EXPERIMENTO
 
 
 archivo_log  <- "HT321.txt"

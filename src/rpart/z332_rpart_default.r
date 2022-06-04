@@ -124,7 +124,7 @@ EstimarGanancia  <- function( x )
 #------------------------------------------------------------------------------
 #Aqui empieza el programa
 
-setwd( "D:\\gdrive\\ITBA2022R\\" )
+setwd( "C:/Users/rvozzi/OneDrive - genommalabinternacional/Documentos/ECD/DataMining" )
 
 #cargo el dataset
 dataset  <- fread("./datasets/paquete_premium_202011.csv")   #donde entreno
@@ -134,7 +134,7 @@ dataset  <- fread("./datasets/paquete_premium_202011.csv")   #donde entreno
 # HT  representa  Hiperparameter Tuning
 dir.create( "./labo/exp/",  showWarnings = FALSE ) 
 dir.create( "./labo/exp/HT3220/", showWarnings = FALSE )
-setwd("D:\\gdrive\\ITBA2022R\\labo\\exp\\HT3320\\")   #Establezco el Working Directory DEL EXPERIMENTO
+setwd("C:/Users/rvozzi/OneDrive - genommalabinternacional/Documentos/ECD/DataMining/labo/exp/HT3220/")   #Establezco el Working Directory DEL EXPERIMENTO
 
 
 archivo_log  <- "HT332.txt"
@@ -153,10 +153,10 @@ if( file.exists(archivo_log) )
 
 #La llamada con los parametros por default
 
-x  <- list(  cp=          0.01,
-             minsplit=   20,
-             minbucket=   6,
-             maxdepth=   30
-           )
+x  <- list(  cp=        -0.294165329288323,   #esto significa no limitar la complejidad de los splits
+             minsplit=  1754,     #minima cantidad de registros para que se haga el split
+             minbucket=  494,     #tamaño minimo de una hoja
+             maxdepth=   12 )    #profundidad maxima del arbol
+    
 
 EstimarGanancia( x )

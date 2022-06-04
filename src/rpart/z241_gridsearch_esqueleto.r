@@ -8,7 +8,7 @@ require("data.table")
 require("rpart")
 require("parallel")
 
-ksemillas  <- c(102191, 200177, 410551, 552581, 892237) #reemplazar por las propias semillas
+ksemillas  <- c(128339, 131707, 135391, 136337, 137947) #reemplazar por las propias semillas
 
 #------------------------------------------------------------------------------
 #particionar agrega una columna llamada fold a un dataset que consiste en una particion estratificada segun agrupa
@@ -74,7 +74,7 @@ ArbolesMontecarlo  <- function( semillas, param_basicos )
 #------------------------------------------------------------------------------
 
 #Aqui se debe poner la carpeta de la computadora local
-setwd("D:\\gdrive\\ITBA2022A\\")   #Establezco el Working Directory
+setwd("C:/Users/rvozzi/OneDrive - genommalabinternacional/Documentos/ECD/DataMining")   #Establezco el Working Directory
 
 #cargo los datos
 dataset  <- fread("./datasets/paquete_premium_202011.csv")
@@ -94,20 +94,29 @@ cat( file=archivo_salida,
      sep= "",
      "max_depth", "\t",
      "min_split", "\t",
+     "minbucket", "\t",
+     "cp", "\t",
      "ganancia_promedio", "\n")
 
 
 #itero por los loops anidados para cada hiperparametro
 
-for( vmax_depth  in  c( 4, 6, 8, 10, 12, 14 )  )
-{
-for( vmin_split  in  c( 1000, 800, 600, 400, 200, 100, 50, 20, 10 )  )
-{
+i=0
 
+for( vmax_depth  in  c(8)  )
+{
+for( vmin_split  in  c(800, 775, 750, 725, 700)  )
+{
+for( v_relation in c(0.2, 0.25, 0.30, 0.35, 0.40))
+{
+for( v_cp in c(-0.1))
+{
+  i<-i+1
+  print(i)
   #notar como se agrega
-  param_basicos  <- list( "cp"=         -0.5,       #complejidad minima
+  param_basicos  <- list( "cp"=         v_cp,       #complejidad minima
                           "minsplit"=  vmin_split,  #minima cantidad de registros en un nodo para hacer el split
-                          "minbucket"=  5,          #minima cantidad de registros en una hoja
+                          "minbucket"=  floor(v_relation*vmin_split), #minima cantidad de registros en una hoja
                           "maxdepth"=  vmax_depth ) #profundidad máxima del arbol
 
   #Un solo llamado, con la semilla 17
@@ -119,7 +128,11 @@ for( vmin_split  in  c( 1000, 800, 600, 400, 200, 100, 50, 20, 10 )  )
         sep= "",
         vmax_depth, "\t",
         vmin_split, "\t",
+        floor(v_relation*vmin_split), "\t",
+        v_cp, "\t",
         ganancia_promedio, "\n"  )
 
+}
+}
 }
 }

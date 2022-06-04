@@ -6,7 +6,7 @@ library("data.table")
 library("rpart")
 library("rpart.plot")
 
-setwd( "D:\\gdrive\\ITBA2022A\\" )  #establezco la carpeta donde voy a trabajar
+setwd( "C:/Users/rvozzi/OneDrive - genommalabinternacional/Documentos/ECD/DataMining" )  #establezco la carpeta donde voy a trabajar
 #cargo el dataset
 dataset  <- fread( "./datasets/paquete_premium_202011.csv")
 
@@ -33,7 +33,7 @@ modelo  <- rpart(formula= "clase_ternaria ~ . ",
 #creo la carepta donde guardo el resultado
 dir.create( "./labo/exp/",  showWarnings = FALSE ) 
 dir.create( "./labo/exp/ST5210/", showWarnings = FALSE )
-setwd("D:\\gdrive\\ITBA2022A\\labo\\exp\\ST5210\\")   #Establezco el Working Directory DEL EXPERIMENTO
+setwd("C:/Users/rvozzi/OneDrive - genommalabinternacional/Documentos/ECD/DataMining")   #Establezco el Working Directory DEL EXPERIMENTO
 
 #genero la imagen del arbol
 pdf( file= "arbol_canaritos.pdf", width=20, height=4)

@@ -8,7 +8,7 @@ require("data.table")
 require("xgboost")
 
 #Aqui se debe poner la carpeta de la computadora local
-setwd("D:\\gdrive\\ITBA2022A\\")   #Establezco el Working Directory
+setwd("C:/Users/rvozzi/OneDrive - genommalabinternacional/Documentos/ECD/DataMining")   #Establezco el Working Directory
 
 #cargo el dataset donde voy a entrenar
 dataset  <- fread("./datasets/paquete_premium_202011.csv", stringsAsFactors= TRUE)
@@ -30,12 +30,12 @@ modelo  <- xgb.train( data= dtrain,
                       param= list( objective=       "binary:logistic",
                                    tree_method=     "hist",
                                    grow_policy=     "lossguide",
-                                   max_leaves=          20,
-                                   min_child_weight=    1,
-                                   eta=                 0.3,
-                                   colsample_bytree=    1.0
+                                   max_leaves=          854,
+                                   min_child_weight=    9,
+                                   eta=                 0.0102655124954211,
+                                   colsample_bytree=    0.568996088643004
                                    ),
-                      nrounds= 34
+                      nrounds= 193
                     )
 
 #aplico el modelo a los datos sin clase
