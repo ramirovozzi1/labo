@@ -32,11 +32,11 @@ param:
     learning_rate:      [ 0.02, 0.3]
     feature_fraction:   [ 0.1, 0.8 ]
     num_leaves:         [ 16, 500, "integer" ]
-    min_data_in_leaf:   [  0, 20, "integer" ]
+    min_data_in_leaf:   [  6, 20, "integer" ]
 
     lambda_l1:  0                    # [ 0  ,  10]
     lambda_l2:  0                    # [ 0  , 200]
-    min_gain_to_split: [ 0  ,  20]
+    min_gain_to_split: [ 0.01  ,  20]
     bagging_fraction: [ 0.2,   1.0 ]
 
     pos_bagging_fraction: 1.0        # dejarlo fijo
