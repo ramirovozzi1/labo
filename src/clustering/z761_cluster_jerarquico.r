@@ -69,11 +69,11 @@ plot( hclust.rf )
 dev.off()
 
 
-#genero 7 clusters
+#genero 6 clusters
 h <- 20
 distintos <- 0
 
-while(  h>0  &  !( distintos >=6 & distintos <=7 ) )
+while(  h>0  &  !( distintos >=5 & distintos <=6 ) )
 {
   h <- h - 1 
   rf.cluster  <- cutree( hclust.rf, h)
