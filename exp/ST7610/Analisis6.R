@@ -13,3 +13,6 @@ mytree <- rpart(
   #cp = 0
 )
 prp(mytree, extra=101, digits=5, branch=1, type=4, varlen=0, faclen=0)
+aggregate(x = datos[,3:158],
+          by = list(datos$cluster2),
+          FUN = mean)
